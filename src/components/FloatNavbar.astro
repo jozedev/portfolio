@@ -1,0 +1,40 @@
+---
+import Home from './icons/Home.astro'
+import Link from './Link.astro'
+---
+
+<nav
+	id="float-navbar"
+	class="transititon fixed left-1/2 top-6 z-10 w-fit -translate-x-1/2 rounded-full bg-[#0c0c0c] px-6 py-2 font-semibold text-slate-100 shadow-lg duration-700"
+>
+	<ul
+		class="mt-0 flex flex-row items-center space-x-8 rounded-lg p-0 text-xs font-medium md:text-sm"
+	>
+		<li>
+			<Link href="#home"><Home class="h-5 w-5 hover:scale-105" /></Link>
+		</li>
+		<li>
+			<Link href="#experience">Experience</Link>
+		</li>
+		<li>
+			<Link href="#projects">Projects</Link>
+		</li>
+		<li>
+			<Link href="#contact" class="text-[#e7a157]">Contact me</Link>
+		</li>
+	</ul>
+</nav>
+
+<script>
+	const floatNavbar = document.getElementById('float-navbar')
+
+	document.addEventListener('scroll', (event) => {
+		if (window.scrollY >= 60) {
+			floatNavbar?.classList.remove('-top-12')
+			floatNavbar?.classList.add('top-6')
+		} else {
+			floatNavbar?.classList.add('-top-12')
+			floatNavbar?.classList.remove('top-6')
+		}
+	})
+</script>

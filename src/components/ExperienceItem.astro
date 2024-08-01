@@ -1,0 +1,26 @@
+---
+interface Props {
+	icon: string
+	title: string
+	company: string
+	date: string
+	description: string
+}
+
+const { icon, title, company, date, description } = Astro.props
+---
+
+<li class="experience-item flex flex-row gap-8 rounded-xl px-10 py-6 hover:bg-[#e8e7e4]">
+	<img
+		src={icon}
+		alt="odybank icon"
+		width="60"
+		class="hidden overflow-hidden rounded-lg sm:block"
+	/>
+	<div>
+		<h5 class="text-xl font-semibold">
+			{title} at <b class="font-bold">{company}</b>
+		</h5>
+		<p class="text-gray-600">{date}</p>
+	</div>
+</li>

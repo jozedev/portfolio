@@ -1,0 +1,25 @@
+---
+import ProjectItem from '../ProjectItem.astro'
+---
+
+<section id="projects" class="mx-auto bg-[#f5f4f1] px-12 py-12 pt-24 xl:px-36">
+	<h2 class="mb-8 text-center text-4xl font-semibold">Projects</h2>
+	<ol class="mx-auto flex w-fit flex-wrap gap-4">
+		<ProjectItem
+			icon="/project_readme.png"
+			title="Readme Generator"
+			description="Web application that generates rich README files through dragging and dropping elements. It has an embedded code editor and a live preview."
+			codeLink="https://github.com/jozedev/readme-generator"
+			websiteLink="https://readme-generator-hazel.vercel.app/"
+			stack={['React', 'Tailwind', 'TypeScript']}
+		/>
+		<ProjectItem
+			icon="/project_tetris.png"
+			title="Tetris"
+			description="Tetris game built with React and pure CSS."
+			codeLink="https://github.com/jozedev/readme-generator"
+			websiteLink="https://readme-generator-hazel.vercel.app/"
+			stack={['React', 'CSS']}
+		/>
+	</ol>
+</section>

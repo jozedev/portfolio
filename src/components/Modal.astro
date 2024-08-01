@@ -1,0 +1,16 @@
+---
+const { id, open } = Astro.props
+---
+
+<button onclick="{`window.${id}.showModal()`}">{open}</button>
+<dialog
+	id="{id}"
+	class={`fixed top-0 left-0 flex h-screen w-screen items-center justify-center bg-black/50`}
+	data-testid="modal"
+>
+	<div class={`border border-1 bg-[#232329] border-white p-6 rounded-xl flex flex-col gap-6`}>
+		<slot />
+	</div>
+</dialog>
+
+<script></script>

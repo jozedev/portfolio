@@ -1,0 +1,59 @@
+---
+import React from './icons/React.astro'
+import Pill from './Pill.astro'
+
+interface Props {
+	icon: string
+	title: string
+	description: string
+	codeLink?: string
+	websiteLink?: string
+	stack?: string[]
+}
+
+const { icon, title, description, codeLink, websiteLink, stack } = Astro.props
+---
+
+<li
+	class="flex w-full flex-col gap-4 rounded-xl border bg-[#fefeff] px-10 py-6 lg:w-[calc(50%-1rem)]"
+>
+	<a class="h-48 w-full overflow-hidden rounded-lg" href={websiteLink} target="_blank">
+		<img
+			src={icon}
+			class="trasnsition-duration-300 border object-cover transition hover:scale-105 sm:block"
+		/>
+	</a>
+	<div class="flex-1">
+		<h5 class="mb-3 text-2xl font-semibold">
+			{title}
+		</h5>
+		<p class="text-gray-600">{description}</p>
+	</div>
+	<div class="flex flex-wrap justify-start gap-2">
+		{stack?.map((item) => <Pill>{item}</Pill>)}
+	</div>
+	<div class="flex flex-row justify-start gap-2 pt-4">
+		{
+			websiteLink && (
+				<a
+					href={websiteLink}
+					target="_blank"
+					class="rounded-lg bg-black px-4 py-2 font-semibold text-white hover:underline"
+				>
+					Visit Site
+				</a>
+			)
+		}
+		{
+			codeLink && (
+				<a
+					href={codeLink}
+					target="_blank"
+					class="rounded-lg border border-black px-4 py-2 font-semibold text-black hover:underline"
+				>
+					View Code
+				</a>
+			)
+		}
+	</div>
+</li>
