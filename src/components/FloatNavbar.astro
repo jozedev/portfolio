@@ -5,7 +5,7 @@ import Link from './Link.astro'
 
 <nav
 	id="float-navbar"
-	class="transititon fixed left-1/2 top-6 z-10 w-fit -translate-x-1/2 rounded-full bg-[#0c0c0c] px-6 py-2 font-semibold text-slate-100 shadow-lg duration-700"
+	class="transititon fixed left-1/2 z-10 hidden w-fit -translate-x-1/2 rounded-full bg-[#0c0c0c] px-6 py-2 font-semibold text-slate-100 shadow-lg duration-700"
 >
 	<ul
 		class="mt-0 flex flex-row items-center space-x-8 rounded-lg p-0 text-xs font-medium md:text-sm"
@@ -28,7 +28,7 @@ import Link from './Link.astro'
 <script>
 	const floatNavbar = document.getElementById('float-navbar')
 
-	document.addEventListener('scroll', (event) => {
+	function scrollHandler() {
 		if (window.scrollY >= 60) {
 			floatNavbar?.classList.remove('-top-12')
 			floatNavbar?.classList.add('top-6')
@@ -36,5 +36,11 @@ import Link from './Link.astro'
 			floatNavbar?.classList.add('-top-12')
 			floatNavbar?.classList.remove('top-6')
 		}
+	}
+
+	window.addEventListener('load', () => {
+		scrollHandler()
+		floatNavbar?.classList.remove('hidden')
 	})
+	document.addEventListener('scroll', scrollHandler)
 </script>
